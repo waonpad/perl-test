@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
+      - type: volume
+        source: cpm-volume
+        target: /workspace/cpm
+      - type: volume
+        source: local-cpm-volume
+        target: /workspace/local
+    tty: true
+    stdin_open: true
+    command: /bin/bash
+    environment:
+      - IN_CONTAINER=true
+
+volumes:
+  cpm-volume:
+  local-cpm-volume:
