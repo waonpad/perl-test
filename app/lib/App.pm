@@ -15,6 +15,8 @@ sub startup ($self) {
 
   # Normal route to controller
   $r->get('/')->to('Example#welcome');
+
+  $r->get('/hello')->to('Hello#hello');
 }
 
 1;
