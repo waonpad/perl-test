@@ -21,6 +21,9 @@ sub startup ($self) {
     1;
   });
 
+  # ルート一覧を確認するコマンド
+  # perl app/script/app routes
+
   # Normal route to controller
   $r->get('/')->to('Example#welcome');
 
