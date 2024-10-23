@@ -23,7 +23,7 @@ tasks:
     cmds:
       - task: utils:exec
         vars:
-          CMD: "local/bin/morbo src/main.pl"
+          CMD: "local/bin/morbo app/script/app"
 
   lint:
     desc: コードスタイルの検査を行う
