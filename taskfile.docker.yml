@@ -1,0 +1,23 @@
+version: "3"
+
+tasks:
+  build:
+    desc: Docker イメージをビルドする
+    aliases:
+      - b
+    cmds:
+      - "{{.DOCKER_COMPOSE}} build {{.CLI_ARGS}}"
+
+  up:
+    desc: Docker コンテナを起動する
+    aliases:
+      - u
+    cmds:
+      - "{{.DOCKER_COMPOSE}} up -d {{.CLI_ARGS}}"
+
+  down:
+    desc: Docker コンテナを停止する
+    aliases:
+      - d
+    cmds:
+      - "{{.DOCKER_COMPOSE}} down"

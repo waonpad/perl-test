@@ -1,0 +1,10 @@
+version: "3"
+
+tasks:
+  exec:
+    desc: コンテナ内外両方から実行される可能性のあるコマンドを処理するための関数
+    internal: true
+    requires:
+      vars: [CMD]
+    cmds:
+      - "{{if .IN_CONTAINER}} {{.CMD}} {{else}} {{.DOCKER_COMPOSE}} exec {{.APP_CONTAINER_NAME}} {{.CMD}} {{end}}"

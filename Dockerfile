@@ -7,6 +7,9 @@ RUN sed -i -e 's/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/' /etc/locale.gen
 RUN locale-gen
 ENV LC_ALL=ja_JP.UTF-8
 
+# Taskfileをインストール
+RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
+
 # ワーキングディレクトリを指定
 WORKDIR /workspace
 
@@ -22,4 +25,4 @@ RUN chmod +x cpm/cpm
 ENV PERL5LIB=/workspace/local/lib/perl5
 
 # cpmで依存モジュールをインストール
-RUN cpm install JSON
+RUN cpm install

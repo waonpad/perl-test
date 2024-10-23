@@ -1,0 +1,6 @@
+version: "3"
+
+vars:
+  DOCKER: "docker"
+  DOCKER_COMPOSE: "{{.DOCKER}} compose"
+  APP_CONTAINER_NAME: "app"

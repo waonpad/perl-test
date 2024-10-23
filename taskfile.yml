@@ -1,0 +1,61 @@
+version: "3"
+
+includes:
+  vars: taskfile.vars.yml
+  utils:
+    taskfile: taskfile.utils.yml
+  docker:
+    taskfile: taskfile.docker.yml
+    aliases:
+      - d
+
+tasks:
+  setup:
+    desc: プロジェクトのセットアップを行う
+    cmds:
+      - task: docker:build
+      - task: docker:up
+  
+  runserver:
+    desc: 開発用サーバーを起動する
+    aliases:
+      - rs
+    cmds:
+      - task: utils:exec
+        vars:
+          CMD: "local/bin/morbo src/main.pl"
+
+  lint:
+    desc: コードスタイルの検査を行う
+    aliases:
+      - l
+    cmds:
+      - task: utils:exec
+        vars:
+          CMD: echo "コードスタイルの検査は未実装です。"
+
+  format:
+    desc: コードスタイルの整形を行う
+    aliases:
+      - f
+    cmds:
+      - task: utils:exec
+        vars:
+          CMD: echo "コードスタイルの整形は未実装です。"
+
+  lint-and-format:
+    desc: コードスタイルの検査と整形を行う
+    aliases:
+      - lf
+    cmds:
+      - task: lint
+      - task: format
+
+  type-check:
+    desc: 型チェックを行う
+    aliases:
+      - t
+    cmds:
+      - task: utils:exec
+        vars:
+          CMD: echo "型チェックは未実装です。"
